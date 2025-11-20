@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Astrologer Rishabh Singh | Online Consultation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #f7b733;
+      --primary-soft: rgba(247, 183, 51, 0.2);
+      --accent: #fc4a1a;
+      --bg-dark: #050816;
+      --card-bg: rgba(8, 18, 40, 0.9);
+      --text-light: #ffffff;
+      --muted: #b3b9d4;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.6);
+      --radius-xl: 22px;
+      --radius-full: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #231849 0%, #050816 45%, #02030a 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Twinkling background */
+    .stars,
+    .stars2 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .stars {
+      background: transparent
+        url("https://www.transparenttextures.com/patterns/stardust.png")
+        repeat;
+      opacity: 0.35;
+      animation: twinkle 16s linear infinite;
+    }
+
+    .stars2 {
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0, transparent 50%);
+      opacity: 0.08;
+      filter: blur(3px);
+      animation: float 26s linear infinite;
+    }
+
+    @keyframes twinkle {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(-200px, 200px, 0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(20px, -20px, 0) scale(1.05);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 16px 60px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .dp {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: conic-gradient(from 220deg, #fc4a1a, #f7b733, #6d28d9, #fc4a1a);
+      padding: 3px;
+      box-shadow: 0 0 20px rgba(247, 183, 51, 0.5);
+    }
+
+    .dp-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fef3c7, #1f2933);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      overflow: hidden; /* important for image */
+    }
+
+    .dp-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      font-size: 0.78rem;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .nav-link:hover {
+      border-color: var(--primary-soft);
+      color: var(--text-light);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn {
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 0.8rem;
+      padding: 9px 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent), var(--primary));
+      color: #050816;
+      box-shadow: 0 10px 25px rgba(252, 74, 26, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 16px 35px rgba(252, 74, 26, 0.65);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--primary);
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .hero-text h2 {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+      background: linear-gradient(120deg, #fef9c3, #facc15, #fb923c);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.08), transparent 60%);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at -10% -10%, rgba(248, 250, 252, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .hero-card-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .info-item {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 7px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .info-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 1px;
+    }
+
+    .info-value {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .price-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.32);
+    }
+
+    .ig-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.35);
+      color: #bfdbfe;
+    }
+
+    .ig-dp {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75);
+      padding: 2px;
+      overflow: hidden; /* for image */
+    }
+
+    .ig-dp-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #020617;
+      overflow: hidden;
+    }
+
+    .ig-dp-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .section {
+      margin-top: 18px;
+      background: rgba(10, 16, 35, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 14px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      color: var(--muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      padding: 10px 11px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .mini-pill {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--muted);
+    }
+
+    .price-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #bbf7d0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    form {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    label {
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    textarea {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 7px 9px;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      outline: none;
+      transition: 0.15s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(247, 183, 51, 0.45);
+    }
+
+    textarea {
+      min-height: 62px;
+      resize: vertical;
+    }
+
+    .inline-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+    }
+
+    .side-note {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 16px;
+      border: 1px dashed rgba(148, 163, 184, 0.55);
+      padding: 10px 11px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .side-note strong {
+      color: var(--primary);
+    }
+
+    .side-list {
+      margin-top: 6px;
+      padding-left: 16px;
+    }
+
+    .side-list li {
+      margin-bottom: 3px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .quote {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .quote-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 22px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Floating WhatsApp button */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 18px;
+      right: 14px;
+      background: #25d366;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      z-index: 20;
+      border: 2px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .whatsapp-fab span {
+      font-size: 26px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-text h1 {
+        font-size: 1.1rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.4rem;
+      }
+
+      .section {
+        padding-inline: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Twinkling night sky background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="dp">
+          <div class="dp-inner">
+            <!-- Profile Image -->
+            <img src="reshab.jpg" alt="Astrologer Rishabh Singh" />
+          </div>
+        </div>
+        <div class="brand-text">
+          <h1>Astrologer Rishabh Singh</h1>
+          <p>Vedic • Kundli • Numerology • Spiritual Guidance</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#contact" class="nav-link">Book Now</a>
+
+        <a
+          href="https://www.instagram.com/_the_rishabhh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          Instagram
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Know Your Destiny, Align Your Stars ✨</h2>
+        <p class="hero-tagline">
+          Personalized astrology guidance by <strong>Rishabh (Reshab) Singh</strong> —
+          career, relationship, education, finance aur life decisions ke liye accurate insights.
+        </p>
+
+        <div class="hero-points">
+          <span class="chip">✅ Online Kundli &amp; Horoscope Reading</span>
+          <span class="chip">✅ WhatsApp Se Direct Consultation</span>
+          <span class="chip">✅ Hindi &amp; English Both</span>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            id="heroWhatsApp"
+            href="https://wa.me/919335006496"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            💬 Book on WhatsApp
+          </a>
+
+          <a
+            href="https://www.instagram.com/_the_rishabhh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            📸 View Instagram Profile
+          </a>
+        </div>
+
+        <p class="hero-note">
+          Fill form below → saari details WhatsApp par automatic chale jaayengi.
+        </p>
+      </div>
+
+      <!-- Hero side card with fixed details -->
+      <aside class="hero-card">
+        <div class="hero-card-header">
+          <div>
+            <p class="hero-card-title">Astrology Profile</p>
+            <p class="hero-card-sub">Basic details (example filled)</p>
+          </div>
+          <span class="price-pill">Starting from ₹501 / session</span>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <p class="info-label">Name</p>
+            <p class="info-value">Rishabh (Reshab) Singh</p>
+          </div>
+          <div class="info-item">
+            <p class="info-label">Specialization</p>
+            <p class="info-value">Vedic &amp; Kundli</p>
+          </div>
+          <div class="info-item">
+            <p class="info-label">Location</p>
+            <p class="info-value">Online • India</p>
+          </div>
+          <div class="info-item">
+            <p class="info-label">Consultation Mode</p>
+            <p class="info-value">WhatsApp Call / Chat</p>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px;">
+          <div class="ig-tag">
+            <div class="ig-dp">
+              <div class="ig-dp-inner">
+                <!-- Instagram DP Image -->
+                <img src="reshab.jpg" alt="Instagram Profile" />
+              </div>
+            </div>
+            <span>@_the_rishabhh</span>
+          </div>
+          <span style="font-size:0.7rem;color:var(--muted);">
+            WhatsApp: <strong>+91 93350 06496</strong>
+          </span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Astrology Services</h2>
+          <p class="section-subtitle">
+            Pick your area of concern – career, love, education, business, health &amp; more.
+          </p>
+        </div>
+        <span class="badge">100% Personal &amp; Private</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <h3>✨ Detailed Kundli Reading</h3>
+          <p>Birth chart analysis – grah, nakshatra, dasha &amp; upcoming life events ka deep explanation.</p>
+          <div class="pill-row">
+            <span class="price-tag">From ₹500</span>
+            <span class="mini-pill">30–40 mins session</span>
+            <span class="mini-pill">PDF Summary Available</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>💼 Career &amp; Finance Guidance</h3>
+          <p>Job, promotion, business start karna sahi hai ya nahi? Perfect timing &amp; direction suggestions.</p>
+          <div class="pill-row">
+            <span class="price-tag">From ₹500</span>
+            <span class="mini-pill">Right field suggestion</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>❤️ Love &amp; Marriage Match</h3>
+          <p>Relationship compatibility, marriage timing, arranged / love marriage ke liye kundli match.</p>
+          <div class="pill-row">
+            <span class="price-tag">From ₹300</span>
+            <span class="mini-pill">Match-making</span>
+            <span class="mini-pill">Remedies if needed</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🏠 Vastu &amp; Home Energy</h3>
+          <p>Ghar, room, study table, shop ke लिए simple vastu changes – bina तोड़-फोड़ के.</p>
+          <div class="pill-row">
+            <span class="price-tag">Custom Price</span>
+            <span class="mini-pill">Photo based guidance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing & Packages -->
+    <section id="pricing" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Consultation Pricing</h2>
+          <p class="section-subtitle">Price yes or no – aapki choice! Free quick reply ya detailed paid session.</p>
+        </div>
+        <span class="badge">Transparent • No Hidden Charges</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <h3>Quick Yes / No (Basic)</h3>
+          <p>1–2 chhote questions ka direct yes/no ya short answer – WhatsApp text only.</p>
+          <div class="pill-row">
+            <span class="price-tag">Sometimes Free / Tip based</span>
+            <span class="mini-pill">Perfect for small doubts</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Standard Reading</h3>
+          <p>Full kundli + 2–3 important questions. Voice / chat dono options.</p>
+          <div class="pill-row">
+            <span class="price-tag">Approx ₹501 – ₹901</span>
+            <span class="mini-pill">Detailed explanation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Premium Life Guidance</h3>
+          <p>Multiple areas covered: career, love, health, finance, education – sab ek hi session mein.</p>
+          <div class="pill-row">
+            <span class="price-tag">Custom (on WhatsApp)</span>
+            <span class="mini-pill">45–60 mins</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / WhatsApp Form -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Book Your Session</h2>
+          <p class="section-subtitle">
+            Naam, date, place, price yes/no – form bharte hi saari info WhatsApp chat में open ho जाएगी.
+          </p>
+        </div>
+        <span class="badge">WhatsApp: +91 93350 06496</span>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <form id="bookingForm">
+          <div class="inline-fields">
+            <div class="field">
+              <label for="fullName">Full Name (पूरा नाम)</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="e.g. Ankit Sharma" />
+            </div>
+
+            <div class="field">
+              <label for="dob">Date of Birth (जन्म तिथि)</label>
+              <input type="date" id="dob" name="dob" required />
+            </div>
+          </div>
+
+          <div class="inline-fields">
+            <div class="field">
+              <label for="tob">Time of Birth (जन्म समय)</label>
+              <input type="time" id="tob" name="tob" />
+            </div>
+
+            <div class="field">
+              <label for="place">Birth Place / Current City (जन्म स्थान)</label>
+              <input type="text" id="place" name="place" required placeholder="e.g. Lucknow, Uttar Pradesh" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="serviceType">Type of Reading (किस बारे में जानना है?)</label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="">-- Select --</option>
+              <option>General Life / Overview</option>
+              <option>Career &amp; Job</option>
+              <option>Love &amp; Marriage</option>
+              <option>Education &amp; Studies</option>
+              <option>Finance &amp; Business</option>
+              <option>Health &amp; Wellbeing</option>
+              <option>Vastu / Home</option>
+              <option>Other (Mention in question)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="budget">
+              Price Preference (Price yes or no?) – आप क्या चाहते हैं?
+            </label>
+            <select id="budget" name="budget" required>
+              <option value="">-- Choose an option --</option>
+              <option>Quick yes/no – free if possible</option>
+              <option>Paid reading approx ₹501</option>
+              <option>Premium detailed session (price discuss)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="question">
+              Your Main Question (आपका मुख्य सवाल)
+            </label>
+            <textarea
+              id="question"
+              name="question"
+              placeholder="Briefly write your problem or question here..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="inline-fields">
+            <div class="field">
+              <label for="contactPref">Preferred Mode</label>
+              <select id="contactPref" name="contactPref">
+                <option>WhatsApp Chat</option>
+                <option>WhatsApp Voice Call</option>
+                <option>WhatsApp Video Call</option>
+                <option>Any is fine</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="instaId">Instagram ID (optional)</label>
+              <input type="text" id="instaId" name="instaId" placeholder="@your_username" />
+            </div>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="consent" required />
+            <label for="consent">
+              I agree that these details will be sent to WhatsApp number
+              <strong>+91 93350 06496</strong>.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:8px; width:100%; justify-content:center;">
+            💬 Send details on WhatsApp
+          </button>
+
+          <p class="hero-note" style="margin-top:6px;">
+            Button दबाते ही नया WhatsApp chat open होगा – बस send दबाएं.
+          </p>
+        </form>
+
+        <!-- Side information -->
+        <aside class="side-note">
+          <strong>Before session:</strong>
+          <ul class="side-list">
+            <li>Correct जन्म तिथि, समय &amp; स्थान लिखें.</li>
+            <li>Clear question likhen – jitna clear, utna accurate guidance.</li>
+            <li>Reply ka time busy schedule pe depend karega (please be patient).</li>
+          </ul>
+
+          <strong style="display:block;margin-top:6px;">What you get:</strong>
+          <ul class="side-list">
+            <li>Personalized remedies (stone, mantra, habits, direction).</li>
+            <li>Practical guidance – sirf डर नहीं, solution bhi.</li>
+            <li>No judgment – safe &amp; private conversation.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Testimonials / Social proof -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">What People Feel After Reading</h2>
+          <p class="section-subtitle">Some typical feedback style – you can replace with real reviews later.</p>
+        </div>
+        <span class="badge">Real people • Real stories</span>
+      </div>
+
+      <div class="testimonials">
+        <div class="card">
+          <p class="quote">
+            “Career ke bare mein kaafi confusion tha. Timing &amp; field dono clear ho gaya. Ab planning confidently kar pa raha hoon.”
+          </p>
+          <p class="quote-name">— Rahul, 24 • Career Reading</p>
+        </div>
+
+        <div class="card">
+          <p class="quote">
+            “Relationship situation complicated thi, kundli &amp; remedies ke baad kaafi clarity mili. Mind light feel hua.”
+          </p>
+          <p class="quote-name">— Neha, 26 • Love &amp; Marriage</p>
+        </div>
+
+        <div class="card">
+          <p class="quote">
+            “Sir ne jo dasha &amp; upcoming phase explain kiya, real life events se match ho raha tha. Astrologically strong guidance.”
+          </p>
+          <p class="quote-name">— Anonymous • Life Overview</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© <span id="year"></span> Astrologer Rishabh Singh. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#top">Back to top ↑</a>
+        <a
+          href="https://www.instagram.com/_the_rishabhh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+        <a href="https://wa.me/919335006496" target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp button -->
+  <div class="whatsapp-fab" id="fabWhatsApp" title="Chat on WhatsApp">
+    <span>🟢</span>
+  </div>
+
+  <script>
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Floating WhatsApp button click
+    document.getElementById("fabWhatsApp").addEventListener("click", function () {
+      window.open("https://wa.me/919335006496", "_blank");
+    });
+
+    // Form submit -> open WhatsApp with pre-filled message
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const dob = document.getElementById("dob").value;
+      const tob = document.getElementById("tob").value;
+      const place = document.getElementById("place").value.trim();
+      const serviceType = document.getElementById("serviceType").value;
+      const budget = document.getElementById("budget").value;
+      const question = document.getElementById("question").value.trim();
+      const contactPref = document.getElementById("contactPref").value;
+      const instaId = document.getElementById("instaId").value.trim();
+      const consent = document.getElementById("consent").checked;
+
+      if (!consent) {
+        alert("Please tick consent checkbox – details will be sent to WhatsApp.");
+        return;
+      }
+
+      let msg = "🔮 New Astrology Consultation Request%0A%0A";
+      msg += "*Name:* " + fullName + "%0A";
+      msg += "*Date of Birth:* " + dob + "%0A";
+      msg += "*Time of Birth:* " + (tob || "Not provided") + "%0A";
+      msg += "*Place (Birth/Current):* " + place + "%0A%0A";
+      msg += "*Type of Reading:* " + serviceType + "%0A";
+      msg += "*Price Preference:* " + budget + "%0A";
+      msg += "*Preferred Mode:* " + contactPref + "%0A";
+      msg += "*Instagram ID:* " + (instaId || "Not provided") + "%0A%0A";
+      msg += "*Main Question / Problem:*%0A" + question + "%0A%0A";
+      msg += "---%0AShared via astrology website form.";
+
+      const waUrl = "https://wa.me/919335006496?text=" + msg;
+      window.open(waUrl, "_blank");
+    });
+  </script>
+</body>
+</html>
